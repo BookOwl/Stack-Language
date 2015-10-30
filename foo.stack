@@ -1,0 +1,24 @@
+{
+    'Put initialize script here:' pop
+    0 `value set
+
+    'Put functions here:' pop
+    { value } `get_value set
+    { value 1 + `value set } `value_up set
+    { value 1 - `value set } `value_down set
+
+    'This needs to be at the end of any class:' pop
+    { get call }
+} `Counter def
+
+'To make an instance of a class (and then store that instance' pop
+'in a variable:' pop
+Counter `my_counter set
+
+'Then call functions of that object:' pop
+`get_value my_counter call print
+`value_up my_counter call
+`get_value my_counter call print
+`value_up my_counter call
+`value_up my_counter call
+`get_value my_counter call print

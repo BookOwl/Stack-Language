@@ -1,79 +1,79 @@
 BUILTIN_OPS = (
     #Math ops
-    '+',
-    '-',
-    '*',
-    '/',
-    'num',
-    'BAND',
-    'BOR',
-    'BXOR',
-    'BNOT',
+    u'+',
+    u'-',
+    u'*',
+    u'/',
+    u'num',
+    u'BAND',
+    u'BOR',
+    u'BXOR',
+    u'BNOT',
     #String ops
-    'concat',
-    'string',
-    'letterof',
+    u'concat',
+    u'string',
+    u'letterof',
     #IO ops
-    'print',
-    'input',
+    u'print',
+    u'input',
     #Stack ops
-    'pop',
-    'dup',
-    'dumpstack',
+    u'pop',
+    u'dup',
+    u'dumpstack',
     #Bool ops
-    'or',
-    'and',
-    '=',
-    '!=',
-    'not',
+    u'or',
+    u'and',
+    u'=',
+    u'!=',
+    u'not',
     #List ops
-    'lnth',
-    'lappend',
-    'lslice',
-    'llen',
-    'lin',
-    'linsert',
-    'lindex',
-    'lreverse',
-    'lclear',
-    'lpop',
-    'lpopn',
-    'ldeln',
-    'lreplace',
+    u'lnth',
+    u'lappend',
+    u'lslice',
+    u'llen',
+    u'lin',
+    u'linsert',
+    u'lindex',
+    u'lreverse',
+    u'lclear',
+    u'lpop',
+    u'lpopn',
+    u'ldeln',
+    u'lreplace',
     #Variable ops
-    'set',
-    'get',
-    'del',
+    u'set',
+    u'get',
+    u'del',
     #Control flow
    # 'while',
-    'if',
-    'ifelse',
+    u'if',
+    u'ifelse',
     #Word Definition ops
-    'def',
-    'call',
+    u'def',
+    u'call',
     #Scope ops
-    'push_scope',
-    'pop_scope',
-    'dump_scope',
+    u'push_scope',
+    u'pop_scope',
+    u'dump_scope',
     #Misc ops
-    'wait',
-    'reverse',
+    u'wait',
+    u'reverse',
     )
 
 DATA_TYPES = (
-    'str',
-    'num',
-    'bool',
-    'list',
-    'name',
-    'code'
+    u'str',
+    u'num',
+    u'bool',
+    u'list',
+    u'name',
+    u'code'
     )
-BLOCK_START = '{'
-BLOCK_END   = '}'
+BLOCK_START = u'{'
+BLOCK_END   = u'}'
 BLOCKS = (BLOCK_START, BLOCK_END)
 
-LIST_START = '['
-LIST_END   = ']'
+LIST_START = u'['
+LIST_END   = u']'
 LISTS = (LIST_START, LIST_END)
 
 
@@ -81,7 +81,7 @@ def is_op(op):
     return op in BUILTIN_OPS
 def is_str(val):
     try:
-        return val[0] == "'" and val[-1] == "'"
+        return val[0] == u"'" and val[-1] == u"'"
     except (IndexError,TypeError):
         return False
 def is_num(val):
@@ -90,11 +90,11 @@ def is_num(val):
     except ValueError:
         return False
 def is_bool(val):
-    return val in ('True','False')
+    return val in (u'True',u'False')
 def is_list(val):
-    return val in ('[]','list')
+    return val in (u'[]',u'list')
 def is_name(val):
-    return  val[0] == '`'
+    return  val[0] == u'`'
 ##    return \
 ##           val not in BUILTIN_OPS and\
 ##           val not in BLOCKS and\
