@@ -102,4 +102,44 @@
     range { 1 - } lmap
 } `range0 def
 
-3 range { string ', he said.' concat print } lforeach
+{
+    /*
+        Get the sum of a list.
+
+        Syntax:
+            <list> lsum
+
+        Examples:
+            6 range lsum -> 21.0
+    */
+
+    0 `sum set
+
+    {
+        sum + `sum set
+    } lforeach
+
+    sum
+} `lsum def
+
+{
+    /*
+        Check if a list contains an item.
+
+        Syntax:
+            <list> <any> lcontains
+
+        Examples:
+            10 range 3 lcontains -> True
+            10 range 15 lcontains -> False
+    */
+
+    `item set
+    False `contains set
+
+    {
+        item = { True `contains set } if
+    } lforeach
+
+    contains
+} `lcontains def

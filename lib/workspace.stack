@@ -1,0 +1,52 @@
+`oop_base import
+
+/* [] `oop_markers set */
+
+{
+    `newobj call `prototype set
+    `newobj call `variables set
+
+    `variables get 'hp' 100 `setprop call
+
+    `prototype get
+
+    'hi' {
+        'Hello!' print
+    } `setprop call
+
+    'attack' {
+        `monster2 set
+        `monster2 get 'get_hp' `prop call call
+        10 -
+        `monster2 get 'set_hp' `prop call
+        call
+    } `setprop call
+
+    'set_hp' {
+        `val set
+        `variables get 'hp' `val get `setprop call
+    } `setprop call
+
+    'get_hp' {
+        `variables get 'hp' `prop call
+    } `setprop call
+} `MonsterGenerator def
+
+MonsterGenerator `monster1 set
+MonsterGenerator `monster2 set
+
+/*
+`monster2 get 'get_hp' `prop call call print
+`monster2 get `monster1 get 'attack' `prop call call
+`monster2 get 'get_hp' `prop call call print
+`monster2 get `monster1 get 'attack' `prop call call
+`monster2 get `monster1 get 'attack' `prop call call
+`monster2 get 'get_hp' `prop call call print
+*/
+
+monster2 'get_hp' prop call print
+monster2 monster1 'attack' prop call
+monster2 'get_hp' prop call print
+monster2 monster1 'attack' prop call
+monster2 monster1 'attack' prop call
+monster2 'get_hp' prop call print
